@@ -9,6 +9,7 @@ public class Bussi {
     private String nykyinenpysakki;
     private String seuraavapysakki;
     private String edellinenpysakki;
+    private String gittergetter;
 
     ArrayList<Matkustaja> matkustajat = new ArrayList<>();
 
