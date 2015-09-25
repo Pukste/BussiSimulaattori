@@ -9,36 +9,70 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.scene.text.*;
 import javafx.stage.Stage;
+import javafx.geometry.Insets;
 
 /**
  *
- * @author Admin
+ * @author Aki
  */
 public class BussiSimulaattori extends Application {
     
     @Override
     public void start(Stage primaryStage) {
+        BorderPane border = new BorderPane();
+        VBox vbox = addVBox();
+        border.setLeft(vbox);
         Button btn = new Button();
-        btn.setText("Say 'Hello World'");
+        Label label = new Label("Name:");
+        TextField textField = new TextField();
+        
+        
+        
+        btn.setText("Bussisimulaattori");
         btn.setOnAction(new EventHandler<ActionEvent>() {
             
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
+                System.out.println("Bussisimulaattori");
             }
         });
         
         StackPane root = new StackPane();
         root.getChildren().add(btn);
         
-        Scene scene = new Scene(root, 300, 250);
         
-        primaryStage.setTitle("Hello World!");
+        Scene scene = new Scene(border, 300, 250);
+        
+        primaryStage.setTitle("Bussisimulaattori");
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+    
+    public VBox addVBox() {
+        VBox vbox = new VBox();
+        vbox.setPadding(new Insets(10));
+        vbox.setSpacing(8);
+        
+        Text title = new Text("Data");
+        title.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+        vbox.getChildren().add(title);
+
+        Hyperlink options[] = new Hyperlink[] {
+            new Hyperlink("Sales"),
+            new Hyperlink("Marketing"),
+            new Hyperlink("Distribution"),
+            new Hyperlink("Costs")};
+
+        for (int i=0; i<4; i++) {
+            VBox.setMargin(options[i], new Insets(0, 0, 0, 8));
+            vbox.getChildren().add(options[i]);
+        }
+
+        return vbox;
     }
 
     /**
