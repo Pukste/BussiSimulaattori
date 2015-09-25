@@ -5,6 +5,7 @@ import java.util.*;
 public class Bussi {
 
     private String linjatunnus;
+    private int matkustajamaara;
     private int maksimimatkustajamaara; //jos yli, seisomaan tai jätetään pysäkille?
     private String nykyinenpysakki;
     private String seuraavapysakki;
