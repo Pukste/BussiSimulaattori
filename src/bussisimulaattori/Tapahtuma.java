@@ -10,5 +10,13 @@ package bussisimulaattori;
  * @author Aki
  */
 public class Tapahtuma {
+    int aika;
     
+    public Tapahtuma() {
+    
+    }
+    
+    public int getAika() {
+        return aika;
+    }
 }
