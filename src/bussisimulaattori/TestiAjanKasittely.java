@@ -28,9 +28,7 @@ public class TestiAjanKasittely {
             paiva = paiva + 1;
         }
 
-        if (minuutti == 0) {
-            System.out.println("Päivä: " + paiva + "." + " " + tunti + ":" + "0" + minuutti);
-        } else if (minuutti < 10) {
+          if (minuutti < 10) {
             System.out.println("Päivä: " + paiva + "." + " " + tunti + ":" + "0" + minuutti);
         } else {
             System.out.println("Päivä: " + paiva + "." + " " + "Kello: " + tunti + ":" + minuutti);
