@@ -26,24 +26,6 @@ public class BussiSimulaattori extends Application {
         BorderPane border = new BorderPane();
         VBox vbox = addVBox();
         border.setLeft(vbox);
-        Button btn = new Button();
-        Label label = new Label("Name:");
-        TextField textField = new TextField();
-        
-        
-        
-        btn.setText("Bussisimulaattori");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Bussisimulaattori");
-            }
-        });
-        
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        
         
         Scene scene = new Scene(border, 300, 250);
         
@@ -53,24 +35,54 @@ public class BussiSimulaattori extends Application {
     }
     
     public VBox addVBox() {
+        // Koko 
         VBox vbox = new VBox();
         vbox.setPadding(new Insets(10));
         vbox.setSpacing(8);
         
-        Text title = new Text("Data");
+        Text title = new Text("Bussisimulaattori");
         title.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         vbox.getChildren().add(title);
-
-        Hyperlink options[] = new Hyperlink[] {
-            new Hyperlink("Sales"),
-            new Hyperlink("Marketing"),
-            new Hyperlink("Distribution"),
-            new Hyperlink("Costs")};
-
-        for (int i=0; i<4; i++) {
-            VBox.setMargin(options[i], new Insets(0, 0, 0, 8));
-            vbox.getChildren().add(options[i]);
-        }
+        
+        Text aika = new Text("Simuloinnissa kuluva aika");
+        vbox.getChildren().add(aika);
+        
+        Button btn = new Button();
+        
+        HBox tunnit = new HBox();
+        tunnit.setSpacing(8);
+        
+        Label label = new Label("Tunnit:");
+        TextField textField = new TextField();
+        
+        tunnit.getChildren().add(label);
+        tunnit.getChildren().add(textField);
+        
+        vbox.getChildren().add(tunnit);
+        
+        HBox minuutit = new HBox();
+        minuutit.setSpacing(8);
+        
+        Label label2 = new Label("Minuutit:");
+        TextField textField2 = new TextField();
+        
+        minuutit.getChildren().add(label2);
+        minuutit.getChildren().add(textField2);
+        
+        vbox.getChildren().add(minuutit);
+        
+        btn.setText("Simuloi");
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+            
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("Bussisimulaattori");
+                System.out.println(textField.getText());
+                System.out.println(textField2.getText());
+            }
+        });
+        
+        vbox.getChildren().add(btn);
 
         return vbox;
     }
