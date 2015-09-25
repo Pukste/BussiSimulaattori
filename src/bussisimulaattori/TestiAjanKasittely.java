@@ -2,7 +2,7 @@ package bussisimulaattori;
 
 import java.util.Scanner;
 
-public class Testi {
+public class TestiAjanKasittely {
 
     static Scanner lukija = new Scanner(System.in);
 
