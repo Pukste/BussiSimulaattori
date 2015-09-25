@@ -10,11 +10,15 @@ package bussisimulaattori;
  * @author Kymppi
  */
 import java.util.Comparator;
-public class Komparaattori impements Comparator<String>
+public class Komparaattori implements Comparator<String>
 {
-    
-    public int comprare(tapahtuma(i), tapahtuma(i+1)){
-        if (tapahtuma(i).aika < tapahtuma(i+1).aika)
+    @Override
+    public int comprare(Tapahtuma tapahtuma1, Tapahtuma tapahtuma2){
+        if (tapahtuma1.getAika < tapahtuma2.getAika)
+        {  return -1;}
+        if (tapahtuma1.getAika > tapahtuma2.getAika)
+        {  return 1;}
+        return 0;
     }
     
 }
