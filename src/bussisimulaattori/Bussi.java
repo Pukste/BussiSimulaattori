@@ -6,7 +6,7 @@ public class Bussi {
 
     private String linjatunnus;
     private int matkustajamaara;
-    private int maksimimatkustajamaara; //jos yli, seisomaan tai jätetään pysäkille?
+    private int maksimimatkustajamaara; //jos yli, jätetään pysäkille.
     private String nykyinenpysakki;
     private String seuraavapysakki;
     private String edellinenpysakki;

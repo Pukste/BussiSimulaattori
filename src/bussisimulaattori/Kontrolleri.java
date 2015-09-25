@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package bussisimulaattori;
-import java.util.*;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
 /**
  *
@@ -15,28 +16,29 @@ public class Kontrolleri {
     Pysäkki a = new Pysäkki("A");
     Pysäkki b = new Pysäkki("B");
     Matkustaja testi = new Matkustaja("B", 0);
+    
+    // Bussi 1 ja bussin 1 tapahtumat
     Bussi testiBussi = new Bussi();
+    Task bussiin1 = Task.BUSSIIN;
+    Task bussista1 = Task.BUSSISTA;
+    Tapahtuma bussi1 = new Tapahtuma(0, bussiin1);
+    Tapahtuma bussi2 = new Tapahtuma(5, bussista1);
+    
+    // Priority queue tapahtumille
+    Comparator<Tapahtuma> comparator = new Komparaattori();
+    PriorityQueue<Tapahtuma> jono = new PriorityQueue<Tapahtuma>(comparator);
     
     public Kontrolleri(BussiSimulaattori gui){
         this.gui = gui;
     }
-
-    // Käy läpi annetun pysäkin matkustajat ja jos bussi on matkalla kyseiseen
-    // pysäkkiin, niin bussi noukkii matkustajan.
-    public void pysäkiltäBussiin(Pysäkki pysäkki, Bussi bussi) {
-        // Käy läpi bussin pysäkit
-        // Tarvii päivityksen bussiluokkaan!
-        
-        // Käy läpi pysäkin matkustajat
-        
-    }
     
-    // Käy läpi bussin matkustajat ja jos ollaan päämääräpysäillä, niin
-    // matkustaja jää pysäkille. Lopuksi pysäkiltä tyhjennetään saapuneet
-    // matkustajat.
-    public void bussistaPysäkille() {
-        ArrayList<Matkustaja> lähtevät;
+    public void simuloi() {
+        jono.add(bussi1);
+        jono.add(bussi2);
+        
+        while (jono.size() != 0) {
+            jono.poll().suorita(testiBussi, a);
+            jono.poll().suorita(testiBussi, b);
+        }
     }
-    
-    // Lopussa koontafunktio, joka pyörittää koko simulaatiota.
 }
