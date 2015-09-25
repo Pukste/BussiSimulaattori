@@ -7,14 +7,12 @@ public class Bussi {
     private String linjatunnus;
     private int matkustajamaara;
     private int maksimimatkustajamaara; //jos yli, jätetään pysäkille.
-    private String nykyinenpysakki;
-    private String seuraavapysakki;
-    private String edellinenpysakki;
-    private String gittergetter;
+    private Pysäkki nykyinenpysakki;
+    private Pysäkki[] pysäkit;
+    private ArrayList<Matkustaja> matkustajat = new ArrayList<>();
 
-    ArrayList<Matkustaja> matkustajat = new ArrayList<>();
-
-    Bussi() {
+    Bussi(Pysäkki[] pysäkit) {
+        this.pysäkit = pysäkit;
     }
 
 
@@ -35,15 +33,17 @@ public class Bussi {
         return matkustajamaara;
     }
 
-    public String getNykyinenpysakki() {
+    public Pysäkki getNykyinenpysakki() {
         return nykyinenpysakki;
     }
 
-    public String getSeuraavapysakki() {
-        return seuraavapysakki;
-    }
-
-    public String getEdellinenpysakki() {
-        return edellinenpysakki;
+    public Pysäkki getPysäkki(String pysäkkiID) {
+        Pysäkki result = null;
+        for (Pysäkki tempPysäkki : pysäkit) {
+            if (tempPysäkki.getPysäkki().equals(pysäkkiID)) {
+                result = tempPysäkki;
+            }
+        }
+        return result;
     }
 }
