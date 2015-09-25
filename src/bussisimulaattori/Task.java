@@ -10,5 +10,6 @@ package bussisimulaattori;
  * @author Aki
  */
 public enum Task {
+    // Määritellään erilaiset tehtävätyypit
     BUSSIIN, BUSSISTA
 }

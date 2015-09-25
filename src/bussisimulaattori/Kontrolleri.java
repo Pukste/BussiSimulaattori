@@ -39,10 +39,8 @@ public class Kontrolleri {
         jono.add(bussi1);
         jono.add(bussi2);
         
-        while (jono.size() != 0) {
-            matkanneet += jono.poll().suorita();
-            matkanneet += jono.poll().suorita();
-        }
+        matkanneet += jono.poll().suorita();
+        matkanneet += jono.poll().suorita();
         
         return matkanneet;
     }

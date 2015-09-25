@@ -65,12 +65,18 @@ public class Bussi {
     
     public int poistuuBussista() {
         int poistuneet = 0;
+        ArrayList<Matkustaja> temp = new ArrayList();
         for (Matkustaja matkustaja : matkustajat) {
             // Pitäisikö muokata eri luokkien getPysäkit vähän eri nimisiksi...
             if (matkustaja.getPysäkki().getPysäkki().equals(nykyinenpysäkki.getPysäkki())) {
                 //matkustajat.remove(matkustaja); // Onkohan väärin poistaa ajon aikana alkioita?
                 poistuneet++;
+                temp.add(matkustaja);
             }
+        }
+        
+        for (Matkustaja matkustaja : temp) {
+            matkustajat.remove(matkustaja);
         }
         
         return poistuneet;

@@ -52,6 +52,10 @@ public class Pysäkki {
             }
         }
         
+        for (Matkustaja matkustaja : result) {
+            matkustajat.remove(matkustaja);
+        }
+        
         return result;
     }
 }

@@ -14,6 +14,8 @@ public class Komparaattori implements Comparator<Tapahtuma>
 {
     @Override
     public int compare(Tapahtuma tapahtuma1, Tapahtuma tapahtuma2){
+        
+        // Vertaillaan aikaa ja palautetaan vertailun mukainen arvo
         if (tapahtuma1.getAika() < tapahtuma2.getAika())
         {  return -1;}
         if (tapahtuma1.getAika() > tapahtuma2.getAika())
