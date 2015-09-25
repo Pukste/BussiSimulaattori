@@ -34,7 +34,7 @@ public class Tapahtuma {
                 // Siirtää pysäkin matkustajat bussiin.
                 // VÄLIAIKAINEN RATKAISU
                 bussi.setNykyinenpysäkki(bussi.getSeuraavapysäkki());
-                bussi.setSeuraavapysäkki(pysäkki); // TÄHÄN UUSI PYSÄKKI!
+                bussi.setSeuraavapysäkki(); // TÄHÄN UUSI PYSÄKKI!
                 for (Matkustaja matkustaja : pysäkki.meneePysäkille(bussi.getSeuraavapysäkki().getPysäkki())) {
                     bussi.lisaamatkustajabussiin(matkustaja);
                 }
@@ -43,6 +43,7 @@ public class Tapahtuma {
             case BUSSISTA:
                 // Poistaa pysäkille jäävät matkustajat ja palauttaa jäävien
                 // matkustajien lukumäärän.
+                bussi.setNykyinenpysäkki(bussi.getSeuraavapysäkki());
                 tulos += bussi.poistuuBussista();
                 break;
         }

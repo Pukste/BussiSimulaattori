@@ -45,8 +45,8 @@ public class Bussi {
         return nykyinenpysäkki;
     }
     
-    public void setSeuraavapysäkki(Pysäkki seuraava) {
-        this.seuraavapysäkki = seuraava;
+    public void setSeuraavapysäkki() {
+        this.seuraavapysäkki = pysäkit[indexPysäkit];
     }
     
     public Pysäkki getSeuraavapysäkki() {
@@ -68,7 +68,7 @@ public class Bussi {
         for (Matkustaja matkustaja : matkustajat) {
             // Pitäisikö muokata eri luokkien getPysäkit vähän eri nimisiksi...
             if (matkustaja.getPysäkki().getPysäkki().equals(nykyinenpysäkki.getPysäkki())) {
-                matkustajat.remove(matkustaja); // Onkohan väärin poistaa ajon aikana alkioita?
+                //matkustajat.remove(matkustaja); // Onkohan väärin poistaa ajon aikana alkioita?
                 poistuneet++;
             }
         }

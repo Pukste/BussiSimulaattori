@@ -46,9 +46,9 @@ public class Pysäkki {
         ArrayList<Matkustaja> result = new ArrayList();
         
         for (Matkustaja matkustaja : matkustajat) {
-            if (matkustaja.getPysäkki().equals(pysäkki)) {
+            if (matkustaja.getPysäkki().getPysäkki().equals(pysäkki)) {
                 result.add(matkustaja);
-                matkustajat.remove(matkustaja); // Voi olla väärin tuhota kesken suorituksen.
+                //matkustajat.remove(matkustaja); // Voi olla väärin tuhota kesken suorituksen.
             }
         }
         
