@@ -20,7 +20,7 @@ public class Kontrolleri {
     public Kontrolleri(BussiSimulaattori gui){
         this.gui = gui;
     }
-    // derp
+
     // Käy läpi annetun pysäkin matkustajat ja jos bussi on matkalla kyseiseen
     // pysäkkiin, niin bussi noukkii matkustajan.
     public void pysäkiltäBussiin(Pysäkki pysäkki, Bussi bussi) {
