@@ -15,7 +15,7 @@ public class TestiAjanKasittely {
         System.out.println("Tunnit: ");
         tunti = lukija.nextInt();
 
-        System.out.println("Minuutit");
+        System.out.println("Minuutit: ");
         minuutti = lukija.nextInt();
 
         while (minuutti >= 60) {
