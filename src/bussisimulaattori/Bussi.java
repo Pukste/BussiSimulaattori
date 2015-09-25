@@ -13,6 +13,7 @@ public class Bussi {
     ArrayList<Matkustaja> matkustajat = new ArrayList<>();
 
     Bussi() {
+        // Näkyykö
     }
 
 
