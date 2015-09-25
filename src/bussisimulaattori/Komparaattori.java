@@ -10,9 +10,9 @@ package bussisimulaattori;
  * @author Kymppi
  */
 import java.util.Comparator;
-public class Komparaattori implements Comparator<String>
+public class Komparaattori implements Comparator<Tapahtuma>
 {
-    @Override
+    
     public int comprare(Tapahtuma tapahtuma1, Tapahtuma tapahtuma2){
         if (tapahtuma1.getAika < tapahtuma2.getAika)
         {  return -1;}
