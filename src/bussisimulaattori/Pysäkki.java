@@ -48,6 +48,7 @@ public class Pysäkki {
         for (Matkustaja matkustaja : matkustajat) {
             if (matkustaja.getPysäkki().equals(pysäkki)) {
                 result.add(matkustaja);
+                matkustajat.remove(matkustaja); // Voi olla väärin tuhota kesken suorituksen.
             }
         }
         

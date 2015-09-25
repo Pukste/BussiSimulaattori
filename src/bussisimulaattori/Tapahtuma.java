@@ -32,12 +32,18 @@ public class Tapahtuma {
         switch (id) {
             case BUSSIIN:
                 // Siirtää pysäkin matkustajat bussiin.
-                
+                // VÄLIAIKAINEN RATKAISU
+                bussi.setNykyinenpysäkki(bussi.getSeuraavapysäkki());
+                bussi.setSeuraavapysäkki(pysäkki); // TÄHÄN UUSI PYSÄKKI!
+                for (Matkustaja matkustaja : pysäkki.meneePysäkille(bussi.getSeuraavapysäkki().getPysäkki())) {
+                    bussi.lisaamatkustajabussiin(matkustaja);
+                }
                 
                 break;
             case BUSSISTA:
                 // Poistaa pysäkille jäävät matkustajat ja palauttaa jäävien
                 // matkustajien lukumäärän.
+                tulos += bussi.poistuuBussista();
                 break;
         }
         

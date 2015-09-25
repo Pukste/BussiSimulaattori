@@ -20,6 +20,7 @@ import javafx.geometry.Insets;
  * @author Aki
  */
 public class BussiSimulaattori extends Application {
+    private final Kontrolleri kontrolleri = new Kontrolleri(this);
     
     @Override
     public void start(Stage primaryStage) {
@@ -35,7 +36,7 @@ public class BussiSimulaattori extends Application {
     }
     
     public VBox addVBox() {
-        // Koko 
+        // Koko ikkuna
         VBox vbox = new VBox();
         vbox.setPadding(new Insets(10));
         vbox.setSpacing(8);
@@ -78,6 +79,7 @@ public class BussiSimulaattori extends Application {
                 System.out.println("Bussisimulaattori");
                 System.out.println(textField.getText());
                 System.out.println(textField2.getText());
+                System.out.println(kontrolleri.simuloi());
             }
         });
         

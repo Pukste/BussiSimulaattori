@@ -16,7 +16,7 @@ public class Kontrolleri {
     int matkanneet;
     Pysäkki a = new Pysäkki("A");
     Pysäkki b = new Pysäkki("B");
-    Matkustaja testi = new Matkustaja("B", 0);
+    Matkustaja testi = new Matkustaja(b, 0);
     
     // Bussi 1 ja bussin 1 tapahtumat
     Pysäkki[] linja1 = {a, b};
@@ -34,7 +34,8 @@ public class Kontrolleri {
         this.gui = gui;
     }
     
-    public void simuloi() {
+    public int simuloi() {
+        a.lisääMatkustaja(testi);
         jono.add(bussi1);
         jono.add(bussi2);
         
@@ -42,5 +43,7 @@ public class Kontrolleri {
             matkanneet += jono.poll().suorita();
             matkanneet += jono.poll().suorita();
         }
+        
+        return matkanneet;
     }
 }
