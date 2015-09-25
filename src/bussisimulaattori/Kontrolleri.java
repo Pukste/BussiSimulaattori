@@ -13,16 +13,18 @@ import java.util.PriorityQueue;
  */
 public class Kontrolleri {
     BussiSimulaattori gui;
+    int matkanneet;
     Pysäkki a = new Pysäkki("A");
     Pysäkki b = new Pysäkki("B");
     Matkustaja testi = new Matkustaja("B", 0);
     
     // Bussi 1 ja bussin 1 tapahtumat
-    Bussi testiBussi = new Bussi();
+    Pysäkki[] linja1 = {a, b};
+    Bussi testiBussi = new Bussi(linja1);
     Task bussiin1 = Task.BUSSIIN;
     Task bussista1 = Task.BUSSISTA;
-    Tapahtuma bussi1 = new Tapahtuma(0, bussiin1);
-    Tapahtuma bussi2 = new Tapahtuma(5, bussista1);
+    Tapahtuma bussi1 = new Tapahtuma(0, bussiin1, testiBussi, a);
+    Tapahtuma bussi2 = new Tapahtuma(5, bussista1, testiBussi, b);
     
     // Priority queue tapahtumille
     Comparator<Tapahtuma> comparator = new Komparaattori();
@@ -37,8 +39,8 @@ public class Kontrolleri {
         jono.add(bussi2);
         
         while (jono.size() != 0) {
-            jono.poll().suorita(testiBussi, a);
-            jono.poll().suorita(testiBussi, b);
+            matkanneet += jono.poll().suorita();
+            matkanneet += jono.poll().suorita();
         }
     }
 }

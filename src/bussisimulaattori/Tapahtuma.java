@@ -12,22 +12,35 @@ package bussisimulaattori;
 public class Tapahtuma {
     private int aika;
     private Task id;
+    private Bussi bussi;
+    private Pysäkki pysäkki;
     
-    public Tapahtuma(int aika, Task id) {
+    public Tapahtuma(int aika, Task id, Bussi bussi, Pysäkki pysäkki) {
         this.aika = aika;
         this.id = id;
+        this.bussi = bussi;
+        this.pysäkki = pysäkki;
     }
     
     public int getAika() {
         return aika;
     }
     
-    public void suorita(Bussi bussi, Pysäkki pysäkki) {
+    public int suorita() {
+        int tulos = 0; // Monta matkustajaa saatiin pysäkille
+        
         switch (id) {
             case BUSSIIN:
+                // Siirtää pysäkin matkustajat bussiin.
+                
+                
                 break;
             case BUSSISTA:
+                // Poistaa pysäkille jäävät matkustajat ja palauttaa jäävien
+                // matkustajien lukumäärän.
                 break;
         }
+        
+        return tulos;
     }
 }
