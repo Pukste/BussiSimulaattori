@@ -46,7 +46,14 @@ public class Bussi {
     }
     
     public void setSeuraavapysäkki() {
-        this.seuraavapysäkki = pysäkit[indexPysäkit];
+        if (indexPysäkit < pysäkit.length) {
+            this.seuraavapysäkki = pysäkit[indexPysäkit];
+            indexPysäkit++;
+        }
+        else if (indexPysäkit == pysäkit.length) {
+            this.seuraavapysäkki = pysäkit[0];
+            indexPysäkit = 1;
+        }
     }
     
     public Pysäkki getSeuraavapysäkki() {
@@ -61,6 +68,10 @@ public class Bussi {
             }
         }
         return result;
+    }
+    
+    public Pysäkki[] getPysäkit() {
+        return pysäkit;
     }
     
     public int poistuuBussista() {

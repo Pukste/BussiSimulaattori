@@ -36,8 +36,6 @@ public class BussiSimulaattori extends Application {
         Text aika = new Text("Simuloinnissa kuluva aika");
         vbox.getChildren().add(aika);
         
-        // Luodaan simuloinnin painike.
-        Button btn = new Button();
         
         // Tuntien lisääminen simulaattoriin.
         HBox tunnit = new HBox();
@@ -63,7 +61,8 @@ public class BussiSimulaattori extends Application {
         
         vbox.getChildren().add(minuutit);
         
-        // Simulointi painikkeen määrittely
+        // Luodaan simuloinnin painike ja määritellään sen toiminta.
+        Button btn = new Button();
         btn.setText("Simuloi");
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -71,7 +70,7 @@ public class BussiSimulaattori extends Application {
                 System.out.println("Bussisimulaattori");
                 System.out.println(textField.getText());
                 System.out.println(textField2.getText());
-                System.out.println(kontrolleri.simuloi());
+                System.out.println(kontrolleri.simuloi()); // TESTAUSTA
             }
         });
         
