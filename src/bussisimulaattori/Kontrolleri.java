@@ -14,8 +14,12 @@ import java.util.PriorityQueue;
 public class Kontrolleri {
     BussiSimulaattori gui;
     int matkanneet;
+    
+    // Pysäkkien luonti
     Pysäkki a = new Pysäkki("A");
     Pysäkki b = new Pysäkki("B");
+    
+    // Matkustajien luonti
     Matkustaja testi = new Matkustaja(b, 0);
     
     // Bussi 1 ja bussin 1 tapahtumat

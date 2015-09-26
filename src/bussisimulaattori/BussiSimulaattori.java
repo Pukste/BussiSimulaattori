@@ -28,19 +28,7 @@ public class BussiSimulaattori extends Application {
         VBox vbox = addVBox();
         border.setLeft(vbox);
         
-        Scene scene = new Scene(border, 300, 250);
-        
-        primaryStage.setTitle("Bussisimulaattori");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-    
-    public VBox addVBox() {
-        // Koko ikkuna
-        VBox vbox = new VBox();
-        vbox.setPadding(new Insets(10));
-        vbox.setSpacing(8);
-        
+        // Otsikon lisäys
         Text title = new Text("Bussisimulaattori");
         title.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         vbox.getChildren().add(title);
@@ -48,8 +36,10 @@ public class BussiSimulaattori extends Application {
         Text aika = new Text("Simuloinnissa kuluva aika");
         vbox.getChildren().add(aika);
         
+        // Luodaan simuloinnin painike.
         Button btn = new Button();
         
+        // Tuntien lisääminen simulaattoriin.
         HBox tunnit = new HBox();
         tunnit.setSpacing(8);
         
@@ -61,6 +51,7 @@ public class BussiSimulaattori extends Application {
         
         vbox.getChildren().add(tunnit);
         
+        // Minuuttien lisääminen simulaattoriin.
         HBox minuutit = new HBox();
         minuutit.setSpacing(8);
         
@@ -72,6 +63,7 @@ public class BussiSimulaattori extends Application {
         
         vbox.getChildren().add(minuutit);
         
+        // Simulointi painikkeen määrittely
         btn.setText("Simuloi");
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -84,7 +76,20 @@ public class BussiSimulaattori extends Application {
         });
         
         vbox.getChildren().add(btn);
-
+        
+        Scene scene = new Scene(border, 300, 250);
+        
+        primaryStage.setTitle("Bussisimulaattori");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+    
+    public VBox addVBox() {
+        // Vasemman puoliskon koon määrittely
+        VBox vbox = new VBox();
+        vbox.setPadding(new Insets(10));
+        vbox.setSpacing(8);
+                
         return vbox;
     }
 
@@ -94,5 +99,4 @@ public class BussiSimulaattori extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
 }
