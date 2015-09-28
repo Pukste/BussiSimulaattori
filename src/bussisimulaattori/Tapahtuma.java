@@ -42,7 +42,6 @@ public class Tapahtuma {
                     for (Matkustaja matkustaja : pysäkki.meneePysäkille(iterator)) {
                         if (bussi.matkustajamaara() == true && matkustaja.getRahat() >= bussi.getBussilippuhinta()) {
                             bussi.lisaamatkustajabussiin(matkustaja);
-                            bussi.bussilipputuotto(bussi.getBussilippuhinta());
                         } else {
                             break;
                         }
