@@ -6,7 +6,7 @@ public class Bussi {
 
     private String linjatunnus;
     private int matkustajamaara = 0;
-    private int maksimimatkustajamaara = 50; //luku asetetettu mielivaltaisesti, jos yli, jätetään pysäkille
+    private final int maksimimatkustajamaara = 50; //luku asetetettu mielivaltaisesti, jos yli, jätetään pysäkille
     private String nykyinenpysäkki;
     private String seuraavapysäkki;
     private int indexPysäkit;
@@ -31,6 +31,7 @@ public class Bussi {
 
     public void lisaamatkustajabussiin(Matkustaja matkustaja) {
         matkustajat.add(matkustaja);
+        bussilipputuotto += bussilippuhinta;
         matkustajamaara++;
     }
 
@@ -110,7 +111,5 @@ public class Bussi {
         return poistuneet;
     }
     
-   public void bussilipputuotto(double bussinlipputuotto){
-        bussilipputuotto = bussilipputuotto + bussinlipputuotto;
-    }
+   
 }
