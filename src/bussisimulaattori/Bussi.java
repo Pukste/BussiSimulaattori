@@ -5,8 +5,8 @@ import java.util.*;
 public class Bussi {
 
     private String linjatunnus;
-    private int matkustajamaara;
-    private int maksimimatkustajamaara; //jos yli, jätetään pysäkille.
+    private int matkustajamaara = 0;
+    private int maksimimatkustajamaara = 50; //luku asetetettu mielivaltaisesti, jos yli, jätetään pysäkille
     private String nykyinenpysäkki;
     private String seuraavapysäkki;
     private int indexPysäkit;
@@ -19,15 +19,23 @@ public class Bussi {
         indexPysäkit = 1;
     }
 
+    public boolean matkustajamaara() {
+        if (matkustajamaara < maksimimatkustajamaara) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public void lisaamatkustajabussiin(Matkustaja matkustaja) {
         matkustajat.add(matkustaja);
+        matkustajamaara++;
     }
 
     public void poistamatkustajabussista(Matkustaja matkustaja) {
         matkustajat.remove(matkustaja);
-        }
-
+        matkustajamaara--;
+    }
 
     public String getLinjatunnus() {
         return linjatunnus;
@@ -36,7 +44,11 @@ public class Bussi {
     public int getMatkustajamaara() {
         return matkustajamaara;
     }
-    
+
+    public int getMaksimimatkustajamaara() {
+        return maksimimatkustajamaara;
+    }
+
     public void setNykyinenpysäkki(String uusi) {
         this.nykyinenpysäkki = uusi;
     }
@@ -44,18 +56,17 @@ public class Bussi {
     public String getNykyinenpysäkki() {
         return nykyinenpysäkki;
     }
-    
+
     public void setSeuraavapysäkki() {
         if (indexPysäkit < pysäkit.length) {
             this.seuraavapysäkki = pysäkit[indexPysäkit];
             indexPysäkit++;
-        }
-        else if (indexPysäkit == pysäkit.length) {
+        } else if (indexPysäkit == pysäkit.length) {
             this.seuraavapysäkki = pysäkit[0];
             indexPysäkit = 1;
         }
     }
-    
+
     public String getSeuraavapysäkki() {
         return seuraavapysäkki;
     }
@@ -69,11 +80,11 @@ public class Bussi {
         }
         return result;
     }
-    
+
     public String[] getPysäkit() {
         return pysäkit;
     }
-    
+
     public int poistuuBussista() {
         int poistuneet = 0;
         ArrayList<Matkustaja> temp = new ArrayList();
@@ -85,11 +96,11 @@ public class Bussi {
                 temp.add(matkustaja);
             }
         }
-        
+
         for (Matkustaja matkustaja : temp) {
             matkustajat.remove(matkustaja);
         }
-        
+
         return poistuneet;
     }
 }
