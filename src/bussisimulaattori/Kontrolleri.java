@@ -21,18 +21,19 @@ public class Kontrolleri {
     Pysäkki c = new Pysäkki("C");
     
     // Matkustajien luonti
-    Matkustaja testi = new Matkustaja(b, 0);
-    Matkustaja testi2 = new Matkustaja(c, 0);
+    Matkustaja testi = new Matkustaja("B", 0);
+    Matkustaja testi2 = new Matkustaja("C", 0);
+    Matkustaja testi3 = new Matkustaja("C", 0);
     
     // Bussi 1 ja bussin 1 tapahtumat
-    Pysäkki[] linja1 = {a, b, c};
+    String[] linja1 = {"A", "B", "C"};
     Bussi testiBussi = new Bussi(linja1);
     Task bussiin = Task.BUSSIIN;
     Task bussista = Task.BUSSISTA;
-    Tapahtuma bussiT1 = new Tapahtuma(0, bussiin, testiBussi, a);
-    Tapahtuma bussiT2 = new Tapahtuma(1, bussista, testiBussi, b);
-    Tapahtuma bussiT3 = new Tapahtuma(2, bussiin, testiBussi, b);
-    Tapahtuma bussiT4 = new Tapahtuma(3, bussista, testiBussi, c);
+    Tapahtuma bussi1T1 = new Tapahtuma(0, bussiin, testiBussi, a);
+    Tapahtuma bussi1T2 = new Tapahtuma(1, bussista, testiBussi, b);
+    Tapahtuma bussi1T3 = new Tapahtuma(2, bussiin, testiBussi, b);
+    Tapahtuma bussi1T4 = new Tapahtuma(3, bussista, testiBussi, c);
     
     // Priority queue tapahtumille
     Comparator<Tapahtuma> comparator = new Komparaattori();
@@ -45,10 +46,11 @@ public class Kontrolleri {
     public int simuloi() {
         a.lisääMatkustaja(testi);
         a.lisääMatkustaja(testi2);
-        jono.add(bussiT1);
-        jono.add(bussiT2);
-        jono.add(bussiT3);
-        jono.add(bussiT4);
+        b.lisääMatkustaja(testi3);
+        jono.add(bussi1T1);
+        jono.add(bussi1T2);
+        jono.add(bussi1T3);
+        jono.add(bussi1T4);
         
         matkanneet += jono.poll().suorita();
         matkanneet += jono.poll().suorita();

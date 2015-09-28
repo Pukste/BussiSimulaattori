@@ -10,10 +10,10 @@ package bussisimulaattori;
  * @author Kymppi
  */
 public class Matkustaja {
-    private Pysäkki pysäkki;
+    private String pysäkki;
     private double rahat;
 
-    public Matkustaja(Pysäkki pysäkki, double rahat) {
+    public Matkustaja(String pysäkki, double rahat) {
 
         this.rahat = rahat;
         this.pysäkki = pysäkki;
@@ -22,7 +22,7 @@ public class Matkustaja {
     public double getRahat() {
         return rahat;
     }
-    public Pysäkki getPysäkki() {
+    public String getPysäkki() {
         return pysäkki;
     }
 

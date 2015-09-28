@@ -22,7 +22,7 @@ public class Pysäkki {
         nimi = uusiNimi;
     }
     
-    public String getPysäkki() {
+    public String getNimi() {
         return nimi;
     }
     
@@ -46,7 +46,7 @@ public class Pysäkki {
         ArrayList<Matkustaja> result = new ArrayList();
         
         for (Matkustaja matkustaja : matkustajat) {
-            if (matkustaja.getPysäkki().getPysäkki().equals(pysäkki)) {
+            if (matkustaja.getPysäkki().equals(pysäkki)) {
                 result.add(matkustaja);
                 //matkustajat.remove(matkustaja); // Voi olla väärin tuhota kesken suorituksen.
             }

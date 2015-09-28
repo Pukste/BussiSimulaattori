@@ -7,13 +7,13 @@ public class Bussi {
     private String linjatunnus;
     private int matkustajamaara;
     private int maksimimatkustajamaara; //jos yli, jätetään pysäkille.
-    private Pysäkki nykyinenpysäkki;
-    private Pysäkki seuraavapysäkki;
+    private String nykyinenpysäkki;
+    private String seuraavapysäkki;
     private int indexPysäkit;
-    private Pysäkki[] pysäkit;
+    private String[] pysäkit;
     private ArrayList<Matkustaja> matkustajat = new ArrayList<>();
 
-    Bussi(Pysäkki[] pysäkit) {
+    Bussi(String[] pysäkit) {
         this.pysäkit = pysäkit;
         seuraavapysäkki = this.pysäkit[0];
         indexPysäkit = 1;
@@ -37,11 +37,11 @@ public class Bussi {
         return matkustajamaara;
     }
     
-    public void setNykyinenpysäkki(Pysäkki uusi) {
+    public void setNykyinenpysäkki(String uusi) {
         this.nykyinenpysäkki = uusi;
     }
 
-    public Pysäkki getNykyinenpysäkki() {
+    public String getNykyinenpysäkki() {
         return nykyinenpysäkki;
     }
     
@@ -56,21 +56,21 @@ public class Bussi {
         }
     }
     
-    public Pysäkki getSeuraavapysäkki() {
+    public String getSeuraavapysäkki() {
         return seuraavapysäkki;
     }
 
-    public Pysäkki getPysäkki(String pysäkkiID) {
-        Pysäkki result = null;
-        for (Pysäkki tempPysäkki : pysäkit) {
-            if (tempPysäkki.getPysäkki().equals(pysäkkiID)) {
+    public String getPysäkki(String pysäkkiID) {
+        String result = null;
+        for (String tempPysäkki : pysäkit) {
+            if (tempPysäkki.equals(pysäkkiID)) {
                 result = tempPysäkki;
             }
         }
         return result;
     }
     
-    public Pysäkki[] getPysäkit() {
+    public String[] getPysäkit() {
         return pysäkit;
     }
     
@@ -79,7 +79,7 @@ public class Bussi {
         ArrayList<Matkustaja> temp = new ArrayList();
         for (Matkustaja matkustaja : matkustajat) {
             // Pitäisikö muokata eri luokkien getPysäkit vähän eri nimisiksi...
-            if (matkustaja.getPysäkki().getPysäkki().equals(nykyinenpysäkki.getPysäkki())) {
+            if (matkustaja.getPysäkki().equals(nykyinenpysäkki)) {
                 //matkustajat.remove(matkustaja); // Onkohan väärin poistaa ajon aikana alkioita?
                 poistuneet++;
                 temp.add(matkustaja);

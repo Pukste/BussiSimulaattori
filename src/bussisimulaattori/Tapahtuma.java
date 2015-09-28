@@ -37,8 +37,8 @@ public class Tapahtuma {
                     bussi.setNykyinenpysäkki(bussi.getSeuraavapysäkki());
                     bussi.setSeuraavapysäkki();
                 }
-                for (Pysäkki iterator : bussi.getPysäkit()) {
-                    for (Matkustaja matkustaja : pysäkki.meneePysäkille(iterator.getPysäkki())) {
+                for (String iterator : bussi.getPysäkit()) {
+                    for (Matkustaja matkustaja : pysäkki.meneePysäkille(iterator)) {
                         bussi.lisaamatkustajabussiin(matkustaja);
                     }
                 }
