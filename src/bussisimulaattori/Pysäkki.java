@@ -58,4 +58,8 @@ public class Pysäkki {
         
         return result;
     }
+    
+    public ArrayList<Matkustaja> getMatkustajat() {
+        return matkustajat;
+    }
 }

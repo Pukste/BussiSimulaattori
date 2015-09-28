@@ -26,7 +26,10 @@ public class BussiSimulaattori extends Application {
     public void start(Stage primaryStage) {
         BorderPane border = new BorderPane();
         VBox vbox = addVBox();
+        VBox vbox2 = addVBox();
         border.setLeft(vbox);
+        border.setCenter(vbox2);
+        Label matkustaneet = new Label();
         
         // Otsikon lisäys
         Text title = new Text("Bussisimulaattori");
@@ -67,16 +70,29 @@ public class BussiSimulaattori extends Application {
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("Bussisimulaattori");
-                System.out.println(textField.getText());
-                System.out.println(textField2.getText());
-                System.out.println(kontrolleri.simuloi()); // TESTAUSTA
+                Tulos tulos = new Tulos();
+                tulos = kontrolleri.simuloi();
+                Integer matkanneet = tulos.getMatkanneet();
+                matkustaneet.setText(matkanneet.toString());
+                btn.setDisable(true);
             }
         });
         
         vbox.getChildren().add(btn);
         
-        Scene scene = new Scene(border, 300, 250);
+        Text title2 = new Text("Matkustaneet");
+        title2.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+        Text title3 = new Text("Pysäkille jääneet");
+        title3.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+        Text title4 = new Text("Tuotto");
+        title4.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+        vbox2.getChildren().add(title2);
+        vbox2.getChildren().add(matkustaneet);
+        vbox2.getChildren().add(title3);
+        vbox2.getChildren().add(title4);
+        
+        
+        Scene scene = new Scene(border, 400, 200);
         
         primaryStage.setTitle("Bussisimulaattori");
         primaryStage.setScene(scene);

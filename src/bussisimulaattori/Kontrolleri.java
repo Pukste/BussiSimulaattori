@@ -28,6 +28,7 @@ public class Kontrolleri {
     Pysäkki g = new Pysäkki("G");
     Pysäkki h = new Pysäkki("H");
     Pysäkki i = new Pysäkki("I");
+    Pysäkki j = new Pysäkki("J");
     
     
     // Matkustajien luonti - VANHA
@@ -52,16 +53,18 @@ public class Kontrolleri {
     Tapahtuma bussi1T8 = new Tapahtuma(20, bussista, bussi1, e);
     
     // Bussi 2 ja bussin 2 tapahtumat
-    String[] linja2 = {"I", "H", "G", "F", "E"};
+    String[] linja2 = {"J", "I", "H", "G", "F", "E"};
     Bussi bussi2 = new Bussi(linja2);
-    Tapahtuma bussi2T1 = new Tapahtuma(0, bussiin, bussi2, i);
-    Tapahtuma bussi2T2 = new Tapahtuma(5, bussista, bussi2, h);
-    Tapahtuma bussi2T3 = new Tapahtuma(6, bussiin, bussi2, h);
-    Tapahtuma bussi2T4 = new Tapahtuma(10, bussista, bussi2, g);
-    Tapahtuma bussi2T5 = new Tapahtuma(11, bussiin, bussi2, g);
-    Tapahtuma bussi2T6 = new Tapahtuma(15, bussista, bussi2, f);
-    Tapahtuma bussi2T7 = new Tapahtuma(16, bussiin, bussi2, f);
-    Tapahtuma bussi2T8 = new Tapahtuma(20, bussista, bussi2, e);
+    Tapahtuma bussi2T1 = new Tapahtuma(0, bussiin, bussi2, j);
+    Tapahtuma bussi2T2 = new Tapahtuma(5, bussista, bussi2, i);
+    Tapahtuma bussi2T3 = new Tapahtuma(6, bussiin, bussi2, i);
+    Tapahtuma bussi2T4 = new Tapahtuma(10, bussista, bussi2, h);
+    Tapahtuma bussi2T5 = new Tapahtuma(11, bussiin, bussi2, h);
+    Tapahtuma bussi2T6 = new Tapahtuma(15, bussista, bussi2, g);
+    Tapahtuma bussi2T7 = new Tapahtuma(16, bussiin, bussi2, g);
+    Tapahtuma bussi2T8 = new Tapahtuma(20, bussista, bussi2, f);
+    Tapahtuma bussi2T9 = new Tapahtuma(21, bussiin, bussi2, f);
+    Tapahtuma bussi2T10 = new Tapahtuma(25, bussista, bussi2, e);
     
     // Bussi 3 ja bussin 3 tapahtumat
     String[] linja3 = {"C", "D", "E", "F", "G"};
@@ -83,7 +86,9 @@ public class Kontrolleri {
         this.gui = gui;
     }
     
-    public int simuloi() {
+    public Tulos simuloi() {
+        Tulos tulos = new Tulos();
+        
         // Pysäkkien käsittely
         pysäkit.add(a);
         pysäkit.add(b);
@@ -94,6 +99,7 @@ public class Kontrolleri {
         pysäkit.add(g);
         pysäkit.add(h);
         pysäkit.add(i);
+        pysäkit.add(j);
         
         // Matkustajien luonti
         Random random = new Random();
@@ -104,10 +110,10 @@ public class Kontrolleri {
             int määrä = random.nextInt(10);
         
             for(int i = 0; i < määrä; i++) {
-                int indeksi = random.nextInt(8);
+                int indeksi = random.nextInt(9);
             
                 while (pysäkit.indexOf(pysäkki) == indeksi) {
-                    indeksi = random.nextInt(8);
+                    indeksi = random.nextInt(9);
                 }
             
                 Matkustaja temp = new Matkustaja(pysäkit.get(indeksi).getNimi(), 0);
@@ -137,6 +143,8 @@ public class Kontrolleri {
         jono.add(bussi2T6);
         jono.add(bussi2T7);
         jono.add(bussi2T8);
+        jono.add(bussi2T9);
+        jono.add(bussi2T10);
         jono.add(bussi3T1);
         jono.add(bussi3T2);
         jono.add(bussi3T3);
@@ -147,31 +155,16 @@ public class Kontrolleri {
         jono.add(bussi3T8);
         
         // Käydään läpi tapahtumajono
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
-        matkanneet += jono.poll().suorita();
+        while(!jono.isEmpty()) {
+            matkanneet = tulos.addMatkanneet(jono.poll().suorita());
+        }
         
-        return matkanneet;
+        for (Pysäkki pysäkki : pysäkit) {
+            for (Matkustaja matkustaja : pysäkki.getMatkustajat()) {
+                tulos.addJääneet(pysäkit.indexOf(pysäkki), 1);
+            }
+        }
+        
+        return tulos;
     }
 }
