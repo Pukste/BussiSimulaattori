@@ -11,6 +11,8 @@ public class Bussi {
     private String seuraavapysäkki;
     private int indexPysäkit;
     private String[] pysäkit;
+    private double bussilippuhinta = 7.50;
+    private double bussilipputuotto = 0;
     private ArrayList<Matkustaja> matkustajat = new ArrayList<>();
 
     Bussi(String[] pysäkit) {
@@ -39,6 +41,10 @@ public class Bussi {
 
     public String getLinjatunnus() {
         return linjatunnus;
+    }
+    
+    public double getBussilippuhinta(){
+        return bussilippuhinta;
     }
 
     public int getMatkustajamaara() {
@@ -102,5 +108,9 @@ public class Bussi {
         }
 
         return poistuneet;
+    }
+    
+   public void bussilipputuotto(double bussinlipputuotto){
+        bussilipputuotto = bussilipputuotto + bussinlipputuotto;
     }
 }
