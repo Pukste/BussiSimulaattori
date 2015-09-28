@@ -28,12 +28,24 @@ public class Tulos {
         return jääneet;
     }
     
+    public int getJäänyt(int indeksi) {
+        return jääneet[indeksi];
+    }
+    
     public void addJääneet(int indeksi, int tulos) {
         jääneet[indeksi] += tulos;
     }
     
+    public int getTullut(int indeksi) {
+        return tulleet[indeksi];
+    }
+    
     public int[] getTulleet() {
         return tulleet;
+    }
+    
+    public void addTulleet(int indeksi, int tulleetMatkustajat) {
+        tulleet[indeksi] = tulleetMatkustajat;
     }
     
     public int getMatkanneet() {

@@ -30,6 +30,28 @@ public class BussiSimulaattori extends Application {
         border.setLeft(vbox);
         border.setCenter(vbox2);
         Label matkustaneet = new Label();
+        // Pysäkkien tiedot
+        Label a1 = new Label();
+        Label b1 = new Label();
+        Label c1 = new Label();
+        Label d1 = new Label();
+        Label e1 = new Label();
+        Label f1 = new Label();
+        Label g1 = new Label();
+        Label h1 = new Label();
+        Label i1 = new Label();
+        Label j1 = new Label();
+        
+        Label a2 = new Label();
+        Label b2 = new Label();
+        Label c2 = new Label();
+        Label d2 = new Label();
+        Label e2 = new Label();
+        Label f2 = new Label();
+        Label g2 = new Label();
+        Label h2 = new Label();
+        Label i2 = new Label();
+        Label j2 = new Label();
         
         // Otsikon lisäys
         Text title = new Text("Bussisimulaattori");
@@ -73,8 +95,30 @@ public class BussiSimulaattori extends Application {
                 Tulos tulos = new Tulos();
                 tulos = kontrolleri.simuloi();
                 Integer matkanneet = tulos.getMatkanneet();
-                matkustaneet.setText(matkanneet.toString());
+                matkustaneet.setText(matkanneet.toString()); 
                 btn.setDisable(true);
+                
+                a1.setText("A: " + tulos.getJäänyt(0));
+                b1.setText("B: " + tulos.getJäänyt(1));
+                c1.setText("C: " + tulos.getJäänyt(2));
+                d1.setText("D: " + tulos.getJäänyt(3));
+                e1.setText("E: " + tulos.getJäänyt(4));
+                f1.setText("F: " + tulos.getJäänyt(5));
+                g1.setText("G: " + tulos.getJäänyt(6));
+                h1.setText("H: " + tulos.getJäänyt(7));
+                i1.setText("I: " + tulos.getJäänyt(8));
+                j1.setText("J: " + tulos.getJäänyt(9));
+                
+                a2.setText("A: " + tulos.getTullut(0));
+                b2.setText("B: " + tulos.getTullut(1));
+                c2.setText("C: " + tulos.getTullut(2));
+                d2.setText("D: " + tulos.getTullut(3));
+                e2.setText("E: " + tulos.getTullut(4));
+                f2.setText("F: " + tulos.getTullut(5));
+                g2.setText("G: " + tulos.getTullut(6));
+                h2.setText("H: " + tulos.getTullut(7));
+                i2.setText("I: " + tulos.getTullut(8));
+                j2.setText("J: " + tulos.getTullut(9));
             }
         });
         
@@ -84,15 +128,35 @@ public class BussiSimulaattori extends Application {
         title2.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         Text title3 = new Text("Pysäkille jääneet");
         title3.setFont(Font.font("Arial", FontWeight.BOLD, 14));
-        Text title4 = new Text("Tuotto");
+        Text title4 = new Text("Pysäkille tulleet");
         title4.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         vbox2.getChildren().add(title2);
         vbox2.getChildren().add(matkustaneet);
         vbox2.getChildren().add(title3);
+        vbox2.getChildren().add(a1);
+        vbox2.getChildren().add(b1);
+        vbox2.getChildren().add(c1);
+        vbox2.getChildren().add(d1);
+        vbox2.getChildren().add(e1);
+        vbox2.getChildren().add(f1);
+        vbox2.getChildren().add(g1);
+        vbox2.getChildren().add(h1);
+        vbox2.getChildren().add(i1);
+        vbox2.getChildren().add(j1);
         vbox2.getChildren().add(title4);
+        vbox2.getChildren().add(a2);
+        vbox2.getChildren().add(b2);
+        vbox2.getChildren().add(c2);
+        vbox2.getChildren().add(d2);
+        vbox2.getChildren().add(e2);
+        vbox2.getChildren().add(f2);
+        vbox2.getChildren().add(g2);
+        vbox2.getChildren().add(h2);
+        vbox2.getChildren().add(i2);
+        vbox2.getChildren().add(j2);
         
         
-        Scene scene = new Scene(border, 400, 200);
+        Scene scene = new Scene(border, 500, 700);
         
         primaryStage.setTitle("Bussisimulaattori");
         primaryStage.setScene(scene);

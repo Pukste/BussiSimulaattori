@@ -118,6 +118,7 @@ public class Kontrolleri {
             
                 Matkustaja temp = new Matkustaja(pysäkit.get(indeksi).getNimi(), 0);
                 pysäkki.lisääMatkustaja(temp);
+                tulos.addTulleet(pysäkit.indexOf(pysäkki), 1);
             }
         }
         
