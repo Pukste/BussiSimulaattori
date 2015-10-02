@@ -63,7 +63,7 @@ public class BussiSimulaattori extends Application {
         title.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         vbox.getChildren().add(title);
         
-        Text aika = new Text("Simuloinnissa kuluva aika");
+        /*Text aika = new Text("Simuloinnissa kuluva aika");
         vbox.getChildren().add(aika);
         
         
@@ -89,7 +89,7 @@ public class BussiSimulaattori extends Application {
         minuutit.getChildren().add(label2);
         minuutit.getChildren().add(textField2);
         
-        vbox.getChildren().add(minuutit);
+        vbox.getChildren().add(minuutit);*/
         
         // Luodaan simuloinnin painike ja määritellään sen toiminta.
         Button btn = new Button();
@@ -131,7 +131,7 @@ public class BussiSimulaattori extends Application {
         
         Text title2 = new Text("Matkustaneet");
         title2.setFont(Font.font("Arial", FontWeight.BOLD, 14));
-        Text title3 = new Text("Pysäkille jääneet ");
+        Text title3 = new Text("Pysäkille jääneet");
         title3.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         Text title4 = new Text("Pysäkille tulleet");
         title4.setFont(Font.font("Arial", FontWeight.BOLD, 14));

@@ -91,6 +91,12 @@ public class Bussi {
     public String[] getPysäkit() {
         return pysäkit;
     }
+    
+    public int getPysäkkiIndex(String pysäkki) {
+        for (String i : pysäkit) {
+            
+        }
+    }
 
     public int poistuuBussista() {
         int poistuneet = 0;
