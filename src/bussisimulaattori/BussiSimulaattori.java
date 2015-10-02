@@ -27,6 +27,11 @@ public class BussiSimulaattori extends Application {
         BorderPane border = new BorderPane();
         VBox vbox = addVBox();
         VBox vbox2 = addVBox();
+        VBox vbox3 = new VBox();
+        VBox vbox4 = new VBox();
+        vbox3.setSpacing(8);
+        vbox4.setSpacing(8);
+        HBox wrapper = new HBox();
         border.setLeft(vbox);
         border.setCenter(vbox2);
         Label matkustaneet = new Label();
@@ -126,37 +131,42 @@ public class BussiSimulaattori extends Application {
         
         Text title2 = new Text("Matkustaneet");
         title2.setFont(Font.font("Arial", FontWeight.BOLD, 14));
-        Text title3 = new Text("Pysäkille jääneet");
+        Text title3 = new Text("Pysäkille jääneet ");
         title3.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         Text title4 = new Text("Pysäkille tulleet");
         title4.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         vbox2.getChildren().add(title2);
         vbox2.getChildren().add(matkustaneet);
-        vbox2.getChildren().add(title3);
-        vbox2.getChildren().add(a1);
-        vbox2.getChildren().add(b1);
-        vbox2.getChildren().add(c1);
-        vbox2.getChildren().add(d1);
-        vbox2.getChildren().add(e1);
-        vbox2.getChildren().add(f1);
-        vbox2.getChildren().add(g1);
-        vbox2.getChildren().add(h1);
-        vbox2.getChildren().add(i1);
-        vbox2.getChildren().add(j1);
-        vbox2.getChildren().add(title4);
-        vbox2.getChildren().add(a2);
-        vbox2.getChildren().add(b2);
-        vbox2.getChildren().add(c2);
-        vbox2.getChildren().add(d2);
-        vbox2.getChildren().add(e2);
-        vbox2.getChildren().add(f2);
-        vbox2.getChildren().add(g2);
-        vbox2.getChildren().add(h2);
-        vbox2.getChildren().add(i2);
-        vbox2.getChildren().add(j2);
+        
+        vbox2.getChildren().add(wrapper);
+        wrapper.getChildren().add(vbox3);
+        wrapper.getChildren().add(vbox4);
+        
+        vbox3.getChildren().add(title3);
+        vbox3.getChildren().add(a1);
+        vbox3.getChildren().add(b1);
+        vbox3.getChildren().add(c1);
+        vbox3.getChildren().add(d1);
+        vbox3.getChildren().add(e1);
+        vbox3.getChildren().add(f1);
+        vbox3.getChildren().add(g1);
+        vbox3.getChildren().add(h1);
+        vbox3.getChildren().add(i1);
+        vbox3.getChildren().add(j1);
+        vbox4.getChildren().add(title4);
+        vbox4.getChildren().add(a2);
+        vbox4.getChildren().add(b2);
+        vbox4.getChildren().add(c2);
+        vbox4.getChildren().add(d2);
+        vbox4.getChildren().add(e2);
+        vbox4.getChildren().add(f2);
+        vbox4.getChildren().add(g2);
+        vbox4.getChildren().add(h2);
+        vbox4.getChildren().add(i2);
+        vbox4.getChildren().add(j2);
         
         
-        Scene scene = new Scene(border, 500, 700);
+        Scene scene = new Scene(border, 600, 500);
         
         primaryStage.setTitle("Bussisimulaattori");
         primaryStage.setScene(scene);
