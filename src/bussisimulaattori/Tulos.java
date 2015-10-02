@@ -45,7 +45,7 @@ public class Tulos {
     }
     
     public void addTulleet(int indeksi, int tulleetMatkustajat) {
-        tulleet[indeksi] = tulleetMatkustajat;
+        tulleet[indeksi] += tulleetMatkustajat;
     }
     
     public int getMatkanneet() {
