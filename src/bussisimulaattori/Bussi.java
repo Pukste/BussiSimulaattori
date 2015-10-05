@@ -127,5 +127,7 @@ public class Bussi {
         return poistuneet;
     }
     
-   
+    public double getBussilipunTuotto() {
+        return bussilipputuotto;
+    }
 }

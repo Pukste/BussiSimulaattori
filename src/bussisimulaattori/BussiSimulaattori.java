@@ -30,14 +30,22 @@ public class BussiSimulaattori extends Application {
         VBox vbox3 = new VBox();
         VBox vbox4 = new VBox();
         VBox vbox5 = new VBox();
+        VBox vbox6 = new VBox();
+        VBox vbox7 = new VBox();
         vbox3.setSpacing(8);
         vbox4.setSpacing(8);
         vbox5.setSpacing(8);
+        vbox6.setSpacing(8);
+        vbox7.setSpacing(8);
         HBox wrapper = new HBox();
+        HBox wrapper2 = new HBox();
+        
         wrapper.setSpacing(8);
+        wrapper2.setSpacing(8);
         border.setLeft(vbox);
         border.setCenter(vbox2);
         Label matkustaneet = new Label();
+        Label tuotto = new Label();
         // Pysäkkien tiedot
         Label a1 = new Label();
         Label b1 = new Label();
@@ -135,6 +143,8 @@ public class BussiSimulaattori extends Application {
                 bussi1.setText("Bussi 1: " + tulos.getBusseissa(0));
                 bussi2.setText("Bussi 2: " + tulos.getBusseissa(1));
                 bussi3.setText("Bussi 3: " + tulos.getBusseissa(2));
+                
+                tuotto.setText(tulos.getTuotto() + " euroa");
             }
         });
         
@@ -142,14 +152,23 @@ public class BussiSimulaattori extends Application {
         
         Text title2 = new Text("Matkustaneet");
         title2.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+        Text title6 = new Text("Bussien tuotto");
+        title6.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         Text title3 = new Text("Pysäkille jääneet");
         title3.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         Text title4 = new Text("Pysäkille tulleet");
         title4.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         Text title5 = new Text("Matkustajat busseissa");
         title5.setFont(Font.font("Arial", FontWeight.BOLD, 14));
-        vbox2.getChildren().add(title2);
-        vbox2.getChildren().add(matkustaneet);
+        
+        vbox2.getChildren().add(wrapper2);
+        wrapper2.getChildren().add(vbox6);
+        wrapper2.getChildren().add(vbox7);
+        vbox6.getChildren().add(title2);
+        vbox6.getChildren().add(matkustaneet);
+        
+        vbox7.getChildren().add(title6);
+        vbox7.getChildren().add(tuotto);
         
         vbox2.getChildren().add(wrapper);
         wrapper.getChildren().add(vbox3);

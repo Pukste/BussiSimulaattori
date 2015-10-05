@@ -26,6 +26,10 @@ public class Tulos {
         return tuotto;
     }
     
+    public void addTuotto(double lisäys) {
+        tuotto += lisäys;
+    }
+    
     public int[] getJääneet() {
         return jääneet;
     }

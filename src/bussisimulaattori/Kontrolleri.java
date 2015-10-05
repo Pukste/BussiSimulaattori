@@ -170,6 +170,10 @@ public class Kontrolleri {
         tulos.addBusseissa(1, bussi2.getMatkustajamaara());
         tulos.addBusseissa(2, bussi3.getMatkustajamaara());
         
+        tulos.addTuotto(bussi1.getBussilipunTuotto());
+        tulos.addTuotto(bussi2.getBussilipunTuotto());
+        tulos.addTuotto(bussi3.getBussilipunTuotto());
+        
         return tulos;
     }
 }
