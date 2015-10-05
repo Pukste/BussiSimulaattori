@@ -167,7 +167,7 @@ public class BussiSimulaattori extends Application {
         vbox4.getChildren().add(j2);
         
         
-        Scene scene = new Scene(border, 600, 500);
+        Scene scene = new Scene(border, 400, 400);
         
         primaryStage.setTitle("Bussisimulaattori");
         primaryStage.setScene(scene);

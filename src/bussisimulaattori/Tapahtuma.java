@@ -49,7 +49,7 @@ public class Tapahtuma {
                         bussi.lisaamatkustajabussiin(matkustaja);
                         } else {
                             pysäkki.lisääMatkustaja(matkustaja);
-                            break;
+                            //break; // TARKISTA BREAKIN TOIMINTA
                         }
                     }
                 }
