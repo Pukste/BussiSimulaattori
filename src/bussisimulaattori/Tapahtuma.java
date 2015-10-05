@@ -40,16 +40,16 @@ public class Tapahtuma {
                 }
                 
                 // Iterator on yksi bussin päämääräpysäkeistä. Luupissa käydään läpi kaikki pysäkit.
-                int index = 0;
+                
                 for (String iterator : bussi.getPysäkit()) {
-                    if (index >= )
+                    
                     // Antaa määränpääpysäkille menevät matkustajat.
                     for (Matkustaja matkustaja : pysäkki.meneePysäkille(iterator)) {
                         if (bussi.matkustajamaara() == true && matkustaja.getRahat() >= bussi.getBussilippuhinta()) {
-                            bussi.lisaamatkustajabussiin(matkustaja);
+                        bussi.lisaamatkustajabussiin(matkustaja);
                         } else {
                             pysäkki.lisääMatkustaja(matkustaja);
-                            //break;
+                            break;
                         }
                     }
                 }

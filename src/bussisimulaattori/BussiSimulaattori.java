@@ -32,6 +32,7 @@ public class BussiSimulaattori extends Application {
         vbox3.setSpacing(8);
         vbox4.setSpacing(8);
         HBox wrapper = new HBox();
+        wrapper.setSpacing(8);
         border.setLeft(vbox);
         border.setCenter(vbox2);
         Label matkustaneet = new Label();

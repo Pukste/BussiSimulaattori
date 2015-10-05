@@ -93,9 +93,17 @@ public class Bussi {
     }
     
     public int getPysäkkiIndex(String pysäkki) {
+        int counter = 0;
+        
         for (String i : pysäkit) {
-            
+            if (i.equals(pysäkki)) {
+                return counter;
+            }
+        
+        counter++;
         }
+        
+        return -1;
     }
 
     public int poistuuBussista() {

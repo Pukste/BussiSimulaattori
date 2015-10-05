@@ -136,7 +136,7 @@ public class Kontrolleri {
         jono.add(bussi1T6);
         jono.add(bussi1T7);
         jono.add(bussi1T8);
-        /*jono.add(bussi2T1);
+        jono.add(bussi2T1);
         jono.add(bussi2T2);
         jono.add(bussi2T3);
         jono.add(bussi2T4);
@@ -153,7 +153,7 @@ public class Kontrolleri {
         jono.add(bussi3T5);
         jono.add(bussi3T6);
         jono.add(bussi3T7);
-        jono.add(bussi3T8);*/
+        jono.add(bussi3T8);
         
         // Käydään läpi tapahtumajono
         while(!jono.isEmpty()) {
