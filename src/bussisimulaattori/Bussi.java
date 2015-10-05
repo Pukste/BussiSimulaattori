@@ -121,6 +121,8 @@ public class Bussi {
         for (Matkustaja matkustaja : temp) {
             matkustajat.remove(matkustaja);
         }
+        
+        matkustajamaara -= poistuneet;
 
         return poistuneet;
     }

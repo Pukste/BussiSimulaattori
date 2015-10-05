@@ -166,6 +166,10 @@ public class Kontrolleri {
             }
         }
         
+        tulos.addBusseissa(0, bussi1.getMatkustajamaara());
+        tulos.addBusseissa(1, bussi2.getMatkustajamaara());
+        tulos.addBusseissa(2, bussi3.getMatkustajamaara());
+        
         return tulos;
     }
 }

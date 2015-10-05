@@ -14,10 +14,12 @@ public class Tulos {
     private int[] jääneet;
     private int[] tulleet;
     private int matkanneet;
+    private int[] busseissa;
             
     public Tulos() {
         jääneet = new int[10];
         tulleet = new int[10];
+        busseissa  = new int[3];
     }
     
     public double getTuotto() {
@@ -55,5 +57,13 @@ public class Tulos {
     public int addMatkanneet(int lisäys) {
         matkanneet += lisäys;
         return matkanneet;
+    }
+    
+    public void addBusseissa(int indeksi, int sisällä) {
+        busseissa[indeksi] += sisällä;
+    }
+    
+    public int getBusseissa(int indeksi) {
+        return busseissa[indeksi];
     }
 }

@@ -29,8 +29,10 @@ public class BussiSimulaattori extends Application {
         VBox vbox2 = addVBox();
         VBox vbox3 = new VBox();
         VBox vbox4 = new VBox();
+        VBox vbox5 = new VBox();
         vbox3.setSpacing(8);
         vbox4.setSpacing(8);
+        vbox5.setSpacing(8);
         HBox wrapper = new HBox();
         wrapper.setSpacing(8);
         border.setLeft(vbox);
@@ -58,6 +60,10 @@ public class BussiSimulaattori extends Application {
         Label h2 = new Label();
         Label i2 = new Label();
         Label j2 = new Label();
+        
+        Label bussi1 = new Label();
+        Label bussi2 = new Label();
+        Label bussi3 = new Label();
         
         // Otsikon lisäys
         Text title = new Text("Bussisimulaattori");
@@ -125,6 +131,10 @@ public class BussiSimulaattori extends Application {
                 h2.setText("H: " + tulos.getTullut(7));
                 i2.setText("I: " + tulos.getTullut(8));
                 j2.setText("J: " + tulos.getTullut(9));
+                
+                bussi1.setText("Bussi 1: " + tulos.getBusseissa(0));
+                bussi2.setText("Bussi 2: " + tulos.getBusseissa(1));
+                bussi3.setText("Bussi 3: " + tulos.getBusseissa(2));
             }
         });
         
@@ -136,12 +146,15 @@ public class BussiSimulaattori extends Application {
         title3.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         Text title4 = new Text("Pysäkille tulleet");
         title4.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+        Text title5 = new Text("Matkustajat busseissa");
+        title5.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         vbox2.getChildren().add(title2);
         vbox2.getChildren().add(matkustaneet);
         
         vbox2.getChildren().add(wrapper);
         wrapper.getChildren().add(vbox3);
         wrapper.getChildren().add(vbox4);
+        wrapper.getChildren().add(vbox5);
         
         vbox3.getChildren().add(title3);
         vbox3.getChildren().add(a1);
@@ -166,8 +179,12 @@ public class BussiSimulaattori extends Application {
         vbox4.getChildren().add(i2);
         vbox4.getChildren().add(j2);
         
+        vbox5.getChildren().add(title5);
+        vbox5.getChildren().add(bussi1);
+        vbox5.getChildren().add(bussi2);
+        vbox5.getChildren().add(bussi3);
         
-        Scene scene = new Scene(border, 400, 400);
+        Scene scene = new Scene(border, 600, 400);
         
         primaryStage.setTitle("Bussisimulaattori");
         primaryStage.setScene(scene);
