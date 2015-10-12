@@ -22,6 +22,38 @@ import javafx.geometry.Insets;
  */
 public class BussiSimulaattori extends Application {
     private final Kontrolleri kontrolleri = new Kontrolleri(this);
+    private Button btn = new Button();
+    private Label matkustaneet = new Label();
+    // Pysäkkien tiedot
+    private Label a1 = new Label();
+    private Label b1 = new Label();
+    private Label c1 = new Label();
+    private Label d1 = new Label();
+    private Label e1 = new Label();
+    private Label f1 = new Label();
+    private Label g1 = new Label();
+    private Label h1 = new Label();
+    private Label i1 = new Label();
+    private Label j1 = new Label();
+        
+    private Label a2 = new Label();
+    private Label b2 = new Label();
+    private Label c2 = new Label();
+    private Label d2 = new Label();
+    private Label e2 = new Label();
+    private Label f2 = new Label();
+    private Label g2 = new Label();
+    private Label h2 = new Label();
+    private Label i2 = new Label();
+    private Label j2 = new Label();
+        
+    private Label bussi1 = new Label();
+    private Label bussi2 = new Label();
+    private Label bussi3 = new Label();
+    
+    private Label tuotto = new Label();
+    
+    private TextField textField2 = new TextField();
     
     @Override
     public void start(Stage primaryStage) {
@@ -45,37 +77,10 @@ public class BussiSimulaattori extends Application {
         wrapper2.setSpacing(8);
         border.setLeft(vbox);
         border.setCenter(vbox2);
-        Label matkustaneet = new Label();
         matkustaneet.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         
-        Label tuotto = new Label();
         tuotto.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-        // Pysäkkien tiedot
-        Label a1 = new Label();
-        Label b1 = new Label();
-        Label c1 = new Label();
-        Label d1 = new Label();
-        Label e1 = new Label();
-        Label f1 = new Label();
-        Label g1 = new Label();
-        Label h1 = new Label();
-        Label i1 = new Label();
-        Label j1 = new Label();
         
-        Label a2 = new Label();
-        Label b2 = new Label();
-        Label c2 = new Label();
-        Label d2 = new Label();
-        Label e2 = new Label();
-        Label f2 = new Label();
-        Label g2 = new Label();
-        Label h2 = new Label();
-        Label i2 = new Label();
-        Label j2 = new Label();
-        
-        Label bussi1 = new Label();
-        Label bussi2 = new Label();
-        Label bussi3 = new Label();
         
         // Otsikon lisäys
         Text title = new Text("Bussisimulaattori");
@@ -103,60 +108,26 @@ public class BussiSimulaattori extends Application {
         minuutit.setSpacing(8);
         
         Label label2 = new Label("Minuutit:");
-        TextField textField2 = new TextField();
         
         minuutit.getChildren().add(label2);
         minuutit.getChildren().add(textField2);
         
         vbox.getChildren().add(minuutit);
         
+        Handleri h = new Handleri();
+        textField2.setOnAction(h);
+        
         // Luodaan simuloinnin painike ja määritellään sen toiminta.
-        Button btn = new Button();
+        
         btn.setText("Simuloi");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Tulos tulos = new Tulos();
-                tulos = kontrolleri.simuloi(Integer.parseInt(textField2.getText()));
-                Integer matkanneet = tulos.getMatkanneet();
-                matkustaneet.setText(matkanneet.toString()); 
-                btn.setDisable(true);
-                
-                a1.setText("A: " + tulos.getJäänyt(0));
-                b1.setText("B: " + tulos.getJäänyt(1));
-                c1.setText("C: " + tulos.getJäänyt(2));
-                d1.setText("D: " + tulos.getJäänyt(3));
-                e1.setText("E: " + tulos.getJäänyt(4));
-                f1.setText("F: " + tulos.getJäänyt(5));
-                g1.setText("G: " + tulos.getJäänyt(6));
-                h1.setText("H: " + tulos.getJäänyt(7));
-                i1.setText("I: " + tulos.getJäänyt(8));
-                j1.setText("J: " + tulos.getJäänyt(9));
-                
-                a2.setText("A: " + tulos.getTullut(0));
-                b2.setText("B: " + tulos.getTullut(1));
-                c2.setText("C: " + tulos.getTullut(2));
-                d2.setText("D: " + tulos.getTullut(3));
-                e2.setText("E: " + tulos.getTullut(4));
-                f2.setText("F: " + tulos.getTullut(5));
-                g2.setText("G: " + tulos.getTullut(6));
-                h2.setText("H: " + tulos.getTullut(7));
-                i2.setText("I: " + tulos.getTullut(8));
-                j2.setText("J: " + tulos.getTullut(9));
-                
-                bussi1.setText("Bussi 1: " + tulos.getBusseissa(0));
-                bussi2.setText("Bussi 2: " + tulos.getBusseissa(1));
-                bussi3.setText("Bussi 3: " + tulos.getBusseissa(2));
-                
-                tuotto.setText(tulos.getTuotto() + " euroa");
-            }
-        });
+        btn.defaultButtonProperty().bind(btn.focusedProperty());
+        btn.setOnAction(h);
         
         vbox.getChildren().add(btn);
         
         Text title2 = new Text("Matkustaneet");
         title2.setFont(Font.font("Arial", FontWeight.BOLD, 14));
-        Text title6 = new Text("Bussien tuotto");
+        Text title6 = new Text("Bussien lipputulot");
         title6.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         Text title3 = new Text("Pysäkille jääneet");
         title3.setFont(Font.font("Arial", FontWeight.BOLD, 14));
@@ -229,4 +200,44 @@ public class BussiSimulaattori extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+    
+private class Handleri implements EventHandler<ActionEvent> { 
+    @Override
+    public void handle(ActionEvent event) {
+        Tulos tulos = new Tulos();
+        tulos = kontrolleri.simuloi(Integer.parseInt(textField2.getText()));
+        Integer matkanneet = tulos.getMatkanneet();
+        matkustaneet.setText(matkanneet.toString()); 
+        btn.setDisable(true);
+        textField2.setDisable(true);
+
+        a1.setText("A: " + tulos.getJäänyt(0));
+        b1.setText("B: " + tulos.getJäänyt(1));
+        c1.setText("C: " + tulos.getJäänyt(2));
+        d1.setText("D: " + tulos.getJäänyt(3));
+        e1.setText("E: " + tulos.getJäänyt(4));
+        f1.setText("F: " + tulos.getJäänyt(5));
+        g1.setText("G: " + tulos.getJäänyt(6));
+        h1.setText("H: " + tulos.getJäänyt(7));
+        i1.setText("I: " + tulos.getJäänyt(8));
+        j1.setText("J: " + tulos.getJäänyt(9));
+
+        a2.setText("A: " + tulos.getTullut(0));
+        b2.setText("B: " + tulos.getTullut(1));
+        c2.setText("C: " + tulos.getTullut(2));
+        d2.setText("D: " + tulos.getTullut(3));
+        e2.setText("E: " + tulos.getTullut(4));
+        f2.setText("F: " + tulos.getTullut(5));
+        g2.setText("G: " + tulos.getTullut(6));
+        h2.setText("H: " + tulos.getTullut(7));
+        i2.setText("I: " + tulos.getTullut(8));
+        j2.setText("J: " + tulos.getTullut(9));
+
+        bussi1.setText("Bussi 1: " + tulos.getBusseissa(0));
+        bussi2.setText("Bussi 2: " + tulos.getBusseissa(1));
+        bussi3.setText("Bussi 3: " + tulos.getBusseissa(2));
+
+        tuotto.setText(tulos.getTuotto() + " euroa");
+    }
+}
 }
