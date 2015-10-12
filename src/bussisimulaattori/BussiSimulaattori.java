@@ -6,6 +6,7 @@
 package bussisimulaattori;
 
 import javafx.application.Application;
+import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -45,7 +46,10 @@ public class BussiSimulaattori extends Application {
         border.setLeft(vbox);
         border.setCenter(vbox2);
         Label matkustaneet = new Label();
+        matkustaneet.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+        
         Label tuotto = new Label();
+        tuotto.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         // Pysäkkien tiedot
         Label a1 = new Label();
         Label b1 = new Label();
@@ -93,7 +97,7 @@ public class BussiSimulaattori extends Application {
         tunnit.getChildren().add(textField);
         
         vbox.getChildren().add(tunnit);
-        
+        */
         // Minuuttien lisääminen simulaattoriin.
         HBox minuutit = new HBox();
         minuutit.setSpacing(8);
@@ -104,7 +108,7 @@ public class BussiSimulaattori extends Application {
         minuutit.getChildren().add(label2);
         minuutit.getChildren().add(textField2);
         
-        vbox.getChildren().add(minuutit);*/
+        vbox.getChildren().add(minuutit);
         
         // Luodaan simuloinnin painike ja määritellään sen toiminta.
         Button btn = new Button();
@@ -113,7 +117,7 @@ public class BussiSimulaattori extends Application {
             @Override
             public void handle(ActionEvent event) {
                 Tulos tulos = new Tulos();
-                tulos = kontrolleri.simuloi();
+                tulos = kontrolleri.simuloi(Integer.parseInt(textField2.getText()));
                 Integer matkanneet = tulos.getMatkanneet();
                 matkustaneet.setText(matkanneet.toString()); 
                 btn.setDisable(true);
@@ -203,7 +207,7 @@ public class BussiSimulaattori extends Application {
         vbox5.getChildren().add(bussi2);
         vbox5.getChildren().add(bussi3);
         
-        Scene scene = new Scene(border, 600, 400);
+        Scene scene = new Scene(border, 700, 400);
         
         primaryStage.setTitle("Bussisimulaattori");
         primaryStage.setScene(scene);

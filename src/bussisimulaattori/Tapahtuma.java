@@ -14,21 +14,28 @@ public class Tapahtuma {
     private int aika;
     private Task id;
     private Bussi bussi;
+    private Pysäkki[] linja;
     private Pysäkki pysäkki;
+    private int matkanneet;
 
-    public Tapahtuma(int aika, Task id, Bussi bussi, Pysäkki pysäkki) {
+    public Tapahtuma(int aika, Task id, Bussi bussi, Pysäkki[] linja, Pysäkki pysäkki) {
         this.aika = aika;
         this.id = id;
         this.bussi = bussi;
+        this.linja = linja;
         this.pysäkki = pysäkki;
     }
 
     public int getAika() {
         return aika;
     }
+    
+    public int getMatkanneet() {
+        return matkanneet;
+    }
 
-    public int suorita() {
-        int tulos = 0; // Monta matkustajaa saatiin pysäkille
+    public Tapahtuma suorita(int tapahtumanAika) {
+        Tapahtuma tulos; // Monta matkustajaa saatiin pysäkille
 
         switch (id) {
             case BUSSIIN:
@@ -49,10 +56,25 @@ public class Tapahtuma {
                         bussi.lisaamatkustajabussiin(matkustaja);
                         } else {
                             pysäkki.lisääMatkustaja(matkustaja);
-                            //break; // TARKISTA BREAKIN TOIMINTA
                         }
                     }
                 }
+                
+                for(int i = 0; i < linja.length; i++) {
+                    if (linja[i] == pysäkki) {
+                        if (i == (linja.length - 1)) {
+                            this.pysäkki = linja[0];
+                            break;
+                        }
+                        else {
+                            this.pysäkki = linja[i+1];
+                            break;
+                        }
+                    }
+                }
+                
+                // Tapahtuman luonti
+                tulos = new Tapahtuma(tapahtumanAika + 5, Task.BUSSISTA, bussi, linja, pysäkki);
 
                 break;
             case BUSSISTA:
@@ -60,8 +82,17 @@ public class Tapahtuma {
                 // matkustajien lukumäärän.
                 bussi.setNykyinenpysäkki(bussi.getSeuraavapysäkki());
                 bussi.setSeuraavapysäkki();
-                tulos += bussi.poistuuBussista();
+                matkanneet += bussi.poistuuBussista();
+                
+                // Tapahtuman luonti
+                tulos = new Tapahtuma(tapahtumanAika + 1, Task.BUSSIIN, bussi, linja, pysäkki);
+                
                 break;
+            //case LISÄÄMATKUSTAJAT:
+            //    tulos = new Tapahtuma (tapahtumanAika + 30, Task.LISÄÄMATKUSTAJAT, null, null, null);
+            //    break;
+            default:
+                tulos = null;
         }
 
         return tulos;
